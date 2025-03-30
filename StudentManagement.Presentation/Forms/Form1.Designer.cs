@@ -49,13 +49,14 @@
             this.dgvFaculties.Name = "dgvFaculties";
             this.dgvFaculties.RowHeadersWidth = 92;
             this.dgvFaculties.RowTemplate.Height = 37;
-            this.dgvFaculties.Size = new System.Drawing.Size(1196, 196);
+            this.dgvFaculties.Size = new System.Drawing.Size(1146, 584);
             this.dgvFaculties.TabIndex = 15;
+            this.dgvFaculties.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculties_CellContentClick);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDelete.Location = new System.Drawing.Point(846, 243);
+            this.btnDelete.Location = new System.Drawing.Point(821, 243);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(140, 55);
             this.btnDelete.TabIndex = 14;
@@ -65,7 +66,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUpdate.Location = new System.Drawing.Point(578, 243);
+            this.btnUpdate.Location = new System.Drawing.Point(553, 243);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(140, 55);
             this.btnUpdate.TabIndex = 13;
@@ -75,7 +76,7 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAdd.Location = new System.Drawing.Point(313, 243);
+            this.btnAdd.Location = new System.Drawing.Point(288, 243);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(140, 55);
             this.btnAdd.TabIndex = 12;
@@ -90,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFacultyName.Location = new System.Drawing.Point(605, 125);
             this.txtFacultyName.Name = "txtFacultyName";
-            this.txtFacultyName.Size = new System.Drawing.Size(307, 35);
+            this.txtFacultyName.Size = new System.Drawing.Size(257, 35);
             this.txtFacultyName.TabIndex = 11;
             // 
             // txtFacultyCode
@@ -100,7 +101,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFacultyCode.Location = new System.Drawing.Point(605, 67);
             this.txtFacultyCode.Name = "txtFacultyCode";
-            this.txtFacultyCode.Size = new System.Drawing.Size(307, 35);
+            this.txtFacultyCode.Size = new System.Drawing.Size(257, 35);
             this.txtFacultyCode.TabIndex = 10;
             // 
             // label2
@@ -131,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 613);
+            this.ClientSize = new System.Drawing.Size(1252, 1001);
             this.Controls.Add(this.dgvFaculties);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);

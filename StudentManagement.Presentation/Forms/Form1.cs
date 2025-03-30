@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StudentManagement.BusinessLogic.Interfaces;
+using StudentManagement.BusinessLogic.InterfaceServices;
 using StudentManagement.DataAccess.Entities;
 using StudentManagement.BusinessLogic.Services;
 
@@ -34,6 +34,7 @@ namespace StudentManagement.Presentation
         private void LoadFaculties()
         {
             dgvFaculties.DataSource = _facultyService.GetAllFaculties();
+            dgvFaculties.Columns["Majors"].Visible = false;
         }
         private void dgvFaculties_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -164,6 +165,11 @@ namespace StudentManagement.Presentation
 
 
         private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvFaculties_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

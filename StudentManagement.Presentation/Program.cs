@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using StudentManagement.BusinessLogic.Interfaces;
+using StudentManagement.BusinessLogic.InterfaceServices;
 using StudentManagement.BusinessLogic.Services;
 using StudentManagement.DataAccess.DbContexts;
+using StudentManagement.DataAccess.InterfaceRepositories;
 using StudentManagement.DataAccess.Repositories;
+using StudentManagement.Presentation.Forms;
 
 namespace StudentManagement.Presentation
 {
@@ -27,11 +29,15 @@ namespace StudentManagement.Presentation
             // 🔹 Setup Dependency Injection (DI) Container
             var serviceProvider = ConfigureServices();
 
-            // 🔹 Resolve FacultyService from DI
+            // 🔹 Resolve Services from DI
             var facultyService = serviceProvider.GetRequiredService<IFacultyService>();
-
-            // 🔹 Start Form1 and Inject Service
-            Application.Run(new Form1(facultyService));
+            var employeeService = serviceProvider.GetRequiredService<IEmployeeService>();
+            var majorService = serviceProvider.GetRequiredService<IMajorService>();
+            // 🔹 Start Main Form and Inject Services
+            var mainForm = new Form1(facultyService);
+            var employeeForm = new EmployeeFormTest(employeeService);
+            var majorForm = new MajorFormTest(majorService, facultyService);    
+            Application.Run(majorForm);
         }
 
         private static IServiceProvider ConfigureServices()
@@ -50,10 +56,12 @@ namespace StudentManagement.Presentation
 
             // 🔹 Register Repositories
             services.AddScoped<IFacultyRepository, FacultyRepository>();
-
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IMajorRepository, MajorRepository>();
             // 🔹 Register Services
             services.AddScoped<IFacultyService, FacultyService>();
-
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IMajorService, MajorService>();
             return services.BuildServiceProvider();
         }
 
