@@ -37,14 +37,16 @@ namespace StudentManagement.Presentation.Forms
 
         private void LoadMajors()
         {
+            var faculties = _facultyService.GetAllFaculties().ToDictionary(f => f.FacultyCode, f => f.FacultyName);
             var majors = _majorService.GetAllMajors().Select(m => new
             {
                 m.MajorCode,
                 m.MajorName,
                 m.FacultyCode,
-                FacultyName = m.Faculty?.FacultyName
+                FacultyName = faculties.TryGetValue(m.FacultyCode, out var name) ? name : "Unknown"
             }).ToList();
             dgvMajors.DataSource = majors;
+            ConfigureMajorGridColumns();
         }
 
         private void dgvMajors_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +57,7 @@ namespace StudentManagement.Presentation.Forms
 
                 txtMajorCode.Text = selectedRow.Cells["MajorCode"].Value.ToString();
                 txtMajorName.Text = selectedRow.Cells["MajorName"].Value.ToString();
-                cboFaculty.SelectedValue = selectedRow.Cells["FacultyCode"].Value.ToString(); // Chọn Faculty trong ComboBox
+                cboFaculty.SelectedValue = selectedRow.Cells["FacultyCode"].Value.ToString();
             }
         }
 
@@ -191,6 +193,13 @@ namespace StudentManagement.Presentation.Forms
                 MessageBox.Show("Xóa ngành học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
             }
+        }
+        private void ConfigureMajorGridColumns()
+        {
+            dgvMajors.Columns["MajorCode"].HeaderText = "Mã Ngành";
+            dgvMajors.Columns["MajorName"].HeaderText = "Tên Ngành";
+            dgvMajors.Columns["FacultyCode"].HeaderText = "Mã Khoa";
+            dgvMajors.Columns["FacultyName"].HeaderText = "Tên Khoa";
         }
     }
 }

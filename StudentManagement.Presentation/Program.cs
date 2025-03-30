@@ -10,6 +10,7 @@ using StudentManagement.BusinessLogic.InterfaceServices;
 using StudentManagement.BusinessLogic.Services;
 using StudentManagement.DataAccess.DbContexts;
 using StudentManagement.DataAccess.InterfaceRepositories;
+using StudentManagement.DataAccess.InterfaceRepository;
 using StudentManagement.DataAccess.Repositories;
 using StudentManagement.Presentation.Forms;
 
@@ -33,11 +34,17 @@ namespace StudentManagement.Presentation
             var facultyService = serviceProvider.GetRequiredService<IFacultyService>();
             var employeeService = serviceProvider.GetRequiredService<IEmployeeService>();
             var majorService = serviceProvider.GetRequiredService<IMajorService>();
+            var classService = serviceProvider.GetRequiredService<IClassService>();
+            var trainingProgramService = serviceProvider.GetRequiredService<ITrainingProgramService>();
+            var studentService = serviceProvider.GetRequiredService<IStudentService>();
             // 🔹 Start Main Form and Inject Services
             var mainForm = new Form1(facultyService);
             var employeeForm = new EmployeeFormTest(employeeService);
-            var majorForm = new MajorFormTest(majorService, facultyService);    
-            Application.Run(majorForm);
+            var majorForm = new MajorFormTest(majorService, facultyService);
+            var classForm = new ClassFormTest(classService, majorService);
+            var trainingProgramForm = new TrainingProgramFormTest(trainingProgramService);
+            var studentForm = new StudentFormTest(studentService, classService, trainingProgramService);
+            Application.Run(mainForm);
         }
 
         private static IServiceProvider ConfigureServices()
@@ -58,10 +65,17 @@ namespace StudentManagement.Presentation
             services.AddScoped<IFacultyRepository, FacultyRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IMajorRepository, MajorRepository>();
+            services.AddScoped<IClassRepository, ClassRepository>();
+            services.AddScoped<ITrainingProgramRepository, TrainingProgramRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
             // 🔹 Register Services
             services.AddScoped<IFacultyService, FacultyService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IMajorService, MajorService>();
+            services.AddScoped<IClassService, ClassService>();
+            services.AddScoped<ITrainingProgramService, TrainingProgramService>();
+            services.AddScoped<IStudentService, StudentService>();
+
             return services.BuildServiceProvider();
         }
 

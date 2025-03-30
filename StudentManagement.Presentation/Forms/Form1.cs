@@ -163,15 +163,5 @@ namespace StudentManagement.Presentation
             }
         }
 
-
-        private void btnAdd_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvFaculties_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

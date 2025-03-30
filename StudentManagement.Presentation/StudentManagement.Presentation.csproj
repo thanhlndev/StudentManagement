@@ -256,6 +256,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ClassFormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClassFormTest.Designer.cs">
+      <DependentUpon>ClassFormTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeeFormTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,8 +280,23 @@
     <Compile Include="Forms\MajorFormTest.Designer.cs">
       <DependentUpon>MajorFormTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StudentFormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentFormTest.Designer.cs">
+      <DependentUpon>StudentFormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TrainingProgramFormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TrainingProgramFormTest.Designer.cs">
+      <DependentUpon>TrainingProgramFormTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ClassFormTest.resx">
+      <DependentUpon>ClassFormTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeFormTest.resx">
       <DependentUpon>EmployeeFormTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +305,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajorFormTest.resx">
       <DependentUpon>MajorFormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentFormTest.resx">
+      <DependentUpon>StudentFormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TrainingProgramFormTest.resx">
+      <DependentUpon>TrainingProgramFormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
