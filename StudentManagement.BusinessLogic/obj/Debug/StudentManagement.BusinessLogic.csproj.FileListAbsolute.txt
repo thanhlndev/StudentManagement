@@ -1,0 +1,12 @@
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\StudentManagement.BusinessLogic.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\StudentManagement.BusinessLogic.pdb
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\StudentManagement.BusinessLogic.csproj.AssemblyReference.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\StudentManagement.BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\StudentManagement.BusinessLogic.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\StudentManagement.BusinessLogic.pdb
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\StudentManagement.BusinessLogic.dll.config
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\EntityFramework.xml
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\StudentM.0496B552.Up2Date
