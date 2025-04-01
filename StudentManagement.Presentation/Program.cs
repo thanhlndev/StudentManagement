@@ -52,7 +52,7 @@ namespace StudentManagement.Presentation
             var services = new ServiceCollection();
 
             // 🔹 Retrieve connection string from app.config
-            string connectionString = ConfigurationManager.ConnectionStrings["StudentDbContext"]?.ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["StudentManagementDbContext"]?.ConnectionString;
             if (string.IsNullOrEmpty(connectionString))
             {
                 throw new InvalidOperationException("Connection string 'StudentDbContext' not found in app.config.");

@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.DataAccess.Entities
 {
-    [Table("Grades")]
     public class Grade
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public int GradeID { get; set; }
-        public string StudentID { get; set; }
-        public string CourseID { get; set; }
-        public string ClassID { get; set; }
+        public int GradeCode { get; set; }
+        public string StudentCode { get; set; }
+        public string CourseCode { get; set; }
+        public string ClassCode { get; set; }
         public decimal Grade0 { get; set; }
         public decimal Grade1 { get; set; }
-        public string EmployeeID { get; set; }
+        public string EmployeeCode { get; set; }
 
         // Navigation properties
         public virtual Student Student { get; set; }

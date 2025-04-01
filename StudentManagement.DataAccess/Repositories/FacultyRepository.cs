@@ -20,28 +20,33 @@ namespace StudentManagement.DataAccess.Repositories
 
         public IEnumerable<Faculty> GetAll()
         {
-            return _context.Faculties.Include(f => f.Majors).ToList();
+            return _context.Faculties
+                //.Include(f => f.Majors)
+                .ToList();
         }
 
-        public Faculty GetById(string facultyId)
+        public Faculty GetByFacultyCode(string facultyCode)
         {
             return _context.Faculties.Include(f => f.Majors)
-                .FirstOrDefault(f => f.FacultyID == facultyId);
+                .FirstOrDefault(f => f.FacultyCode == facultyCode);
         }
-
         public void Add(Faculty faculty)
         {
             _context.Faculties.Add(faculty);
             _context.SaveChanges();
         }
 
-        public void Update(Faculty faculty)
+        public void Update(Guid facultyId, Faculty faculty)
         {
-            _context.Entry(faculty).State = EntityState.Modified;
-            _context.SaveChanges();
+            var existFaculty = _context.Faculties.Find(facultyId);
+            if (existFaculty != null)
+            {
+                _context.Entry(faculty).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
         }
 
-        public void Delete(string facultyId)
+        public void Delete(Guid facultyId)
         {
             var faculty = _context.Faculties.Find(facultyId);
             if (faculty != null)

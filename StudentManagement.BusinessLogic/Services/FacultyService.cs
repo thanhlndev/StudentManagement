@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StudentManagement.DataAccess.Entities;
 using StudentManagement.DataAccess.Repositories;
-using StudentManagement.BusinessLogic.Interfaces;
+using StudentManagement.BusinessLogic.InterfaceServices;
 
 namespace StudentManagement.BusinessLogic.Services
 {
@@ -23,9 +20,13 @@ namespace StudentManagement.BusinessLogic.Services
             return _facultyRepository.GetAll();
         }
 
-        public Faculty GetFacultyById(string facultyId)
+        public Faculty GetFacultyByFacultyCode(string facultyCode)
         {
-            return _facultyRepository.GetById(facultyId);
+            return _facultyRepository.GetByFacultyCode(facultyCode);
+        }
+        public bool FacultyExists(string facultyCode)
+        {
+            return _facultyRepository.GetByFacultyCode(facultyCode) != null;
         }
 
         public void AddFaculty(Faculty faculty)
@@ -34,13 +35,13 @@ namespace StudentManagement.BusinessLogic.Services
             _facultyRepository.Add(faculty);
         }
 
-        public void UpdateFaculty(Faculty faculty)
+        public void UpdateFaculty(Guid facultyId, Faculty faculty)
         {
             // Add business logic/validation if needed
-            _facultyRepository.Update(faculty);
+            _facultyRepository.Update(facultyId, faculty);
         }
 
-        public void DeleteFaculty(string facultyId)
+        public void DeleteFaculty(Guid facultyId)
         {
             // Add business logic/validation if needed
             _facultyRepository.Delete(facultyId);

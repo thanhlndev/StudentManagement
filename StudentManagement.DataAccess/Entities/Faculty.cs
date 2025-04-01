@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.DataAccess.Entities
 {
-    [Table("Faculties")]
     public class Faculty
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string FacultyID { get; set; }
+
+        [Required, StringLength(10, MinimumLength = 2, ErrorMessage = "FacultyCode must be between 2 and 10 characters.")]
+        public string FacultyCode { get; set; }
+
+        [Required, Column(TypeName = "NVARCHAR"), StringLength(100, MinimumLength = 2)]
         public string FacultyName { get; set; }
 
         public virtual ICollection<Major> Majors { get; set; }

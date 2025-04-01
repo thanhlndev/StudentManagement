@@ -9,20 +9,26 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.DataAccess.Entities
 {
-    [Table("Employees")]
-    public class Employee
+   public class Employee
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string EmployeeID { get; set; }
+        
+        [Required, StringLength(10)]
+        public string EmployeeCode { get; set; }
+        
+        [Required, Column(TypeName = "NVARCHAR"), StringLength(100)]
         public string EmployeeName { get; set; }
+        
+        [Required, Column(TypeName = "NVARCHAR"), StringLength(50)]
         public string EmployeeType { get; set; }
+        
         public DateTime DateOfBirth { get; set; }
+        
+        [Column(TypeName = "NVARCHAR"), StringLength(100)]
         public string Hometown { get; set; }
 
-
-        // Navigation properties
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<Grade> Grades { get; set; }
-    }   
+    }
 }

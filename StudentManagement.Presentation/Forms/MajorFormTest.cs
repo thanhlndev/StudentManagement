@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using StudentManagement.BusinessLogic.InterfaceServices;
 using StudentManagement.DataAccess.Entities;
@@ -21,18 +22,22 @@ namespace StudentManagement.Presentation.Forms
             dgvMajors.CellClick += dgvMajors_CellClick;
             _majorService = majorService;
             _facultyService = facultyService;
-            LoadFaculties(); // Load danh sách Faculty vào ComboBox
-            LoadMajors();
+            LoadDatas();
         }
         private void MajorFormTest_Load(object sender, EventArgs e)
         {
         }
+        private void LoadDatas()
+        {
+            LoadFaculties();
+            LoadMajors();       
+        }
         private void LoadFaculties()
         {
-            var faculties = _facultyService.GetAllFaculties().ToList(); // Giả sử có phương thức này
+            var faculties = _facultyService.GetAllFaculties().ToList();
             cboFaculty.DataSource = faculties;
-            cboFaculty.DisplayMember = "FacultyName"; // Hiển thị FacultyName
-            cboFaculty.ValueMember = "FacultyCode";   // Giá trị là FacultyCode
+            cboFaculty.DisplayMember = "FacultyName"; 
+            cboFaculty.ValueMember = "FacultyCode"; 
         }
 
         private void LoadMajors()
@@ -65,7 +70,7 @@ namespace StudentManagement.Presentation.Forms
         {
             txtMajorCode.Clear();
             txtMajorName.Clear();
-            cboFaculty.SelectedIndex = -1; // Reset ComboBox
+            cboFaculty.SelectedIndex = -1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -81,14 +86,10 @@ namespace StudentManagement.Presentation.Forms
             }
 
             var selectedFaculty = (Faculty)cboFaculty.SelectedItem;
-            string facultyCode = selectedFaculty.FacultyCode; // Lấy FacultyCode từ object Faculty
+            string facultyCode = selectedFaculty.FacultyCode;
 
-            if (string.IsNullOrEmpty(majorCode) || string.IsNullOrEmpty(majorName) || string.IsNullOrEmpty(facultyCode))
-            {
-                MessageBox.Show("Tất cả các trường đều không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
+            if (!ValidateStudentInput()) return;
             if (_majorService.MajorExists(majorCode))
             {
                 MessageBox.Show("Mã ngành đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,32 +118,27 @@ namespace StudentManagement.Presentation.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            
             if (dgvMajors.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một ngành để cập nhật!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             string oldMajorCode = dgvMajors.SelectedRows[0].Cells["MajorCode"].Value?.ToString();
             string newMajorCode = txtMajorCode.Text.Trim();
             string newMajorName = txtMajorName.Text.Trim();
 
-            // Lấy Faculty từ ComboBox
-            if (cboFaculty.SelectedItem == null)
-            {
-                MessageBox.Show("Vui lòng chọn một khoa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
 
             var selectedFaculty = (Faculty)cboFaculty.SelectedItem;
-            string newFacultyCode = selectedFaculty.FacultyCode; // Lấy FacultyCode từ object Faculty
+            string newFacultyCode = selectedFaculty.FacultyCode;
 
-            if (string.IsNullOrEmpty(newMajorCode) || string.IsNullOrEmpty(newMajorName) || string.IsNullOrEmpty(newFacultyCode))
+            if (!ValidateStudentInput()) return;
+            if (string.IsNullOrEmpty(newFacultyCode))
             {
-                MessageBox.Show("Tất cả các trường đều không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Khoa không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             var existingMajor = _majorService.GetByMajorCode(oldMajorCode);
             if (existingMajor == null)
             {
@@ -200,6 +196,22 @@ namespace StudentManagement.Presentation.Forms
             dgvMajors.Columns["MajorName"].HeaderText = "Tên Ngành";
             dgvMajors.Columns["FacultyCode"].HeaderText = "Mã Khoa";
             dgvMajors.Columns["FacultyName"].HeaderText = "Tên Khoa";
+        }
+        private bool ValidateStudentInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtMajorCode.Text))
+            {
+                MessageBox.Show("Mã nghành không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtMajorName.Text))
+            {
+                MessageBox.Show("Tên ngành không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
     }
 }
