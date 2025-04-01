@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿#Nhập lệnh tại Tools/Nuget Package Manager/Nuget Package Console
 
 Install-Package EntityFramework -Version 6.4.4 -ProjectName StudentManagement.DataAccess
@@ -15,13 +14,3 @@ NuGet\Install-Package Microsoft.EntityFrameworkCore -Version 3.1.32 -ProjectName
 Enable-Migrations -ProjectName StudentManagement.DataAccess
 Add-Migration InitialCreate
 Update-Database
-=======
-﻿Install-Package EntityFramework
-
-Install-Package Microsoft.Extensions.DependencyInjection
-
-
-Enable-Migrations -ProjectName StudentManagement.DataAccess
-Add-Migration InitialCreate
-Update-Database
->>>>>>> 66bfcaf46f3979474ca67107b217457cb3fc45cf
