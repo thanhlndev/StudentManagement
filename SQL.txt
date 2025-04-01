@@ -1,0 +1,175 @@
+create database quanlysinhvien;
+use quanlysinhvien;
+
+CREATE TABLE NHANVIEN (
+    MaNhanVien VARCHAR(20) PRIMARY KEY,   -- Mã nhân viên (khóa chính)
+    TenNhanVien VARCHAR(100) CHARACTER SET utf8, -- Tên nhân viên
+    LoaiNhanVien VARCHAR(50) CHARACTER SET utf8, -- Loại nhân viên
+    NgaySinh DATE,                         -- Ngày sinh
+    QueQuan VARCHAR(100) CHARACTER SET utf8 -- Quê quán
+);
+
+CREATE TABLE KHOA (
+    MaKhoa VARCHAR(20) PRIMARY KEY,          -- Mã khoa (khóa chính)
+    TenKhoa VARCHAR(100) CHARACTER SET utf8  -- Tên khoa
+);
+
+CREATE TABLE NGANH (
+    MaNganh VARCHAR(20),                    -- Mã ngành
+    TenNganh VARCHAR(100) CHARACTER SET utf8, -- Tên ngành
+    MaKhoa VARCHAR(20),                     -- Mã khoa (liên kết với bảng KHOA)
+    PRIMARY KEY (MaNganh, MaKhoa),          -- Khóa chính gồm cả MaNganh và MaKhoa
+    FOREIGN KEY (MaKhoa) REFERENCES KHOA(MaKhoa) -- Khóa ngoại tham chiếu đến MaKhoa trong bảng KHOA
+);
+
+
+CREATE TABLE lop (
+    MaLop VARCHAR(20),                      -- Mã lớp
+    TenLop VARCHAR(100) CHARACTER SET utf8, -- Tên lớp
+    MaNganh VARCHAR(20),                    -- Mã ngành (liên kết với bảng NGANH)
+    HeDaoTao VARCHAR(50) CHARACTER SET utf8, -- Hệ đào tạo (ví dụ: Chính quy, Tại chức)
+    KhoaHoc VARCHAR(10),                    -- Khóa học (ví dụ: K2020)
+    PRIMARY KEY (MaLop),                    -- Khóa chính là MaLop
+    FOREIGN KEY (MaNganh) REFERENCES nganh(MaNganh) -- Khóa ngoại tham chiếu đến MaNganh trong bảng NGANH
+);
+
+
+CREATE TABLE CHUONGTRINHDAOTAO (
+    MaChuongTrinh VARCHAR(20) PRIMARY KEY,            -- Mã chương trình đào tạo (khóa chính)
+    LoaiChuongTrinh VARCHAR(100) CHARACTER SET utf8,  -- Loại chương trình đào tạo
+    SoTinChi INT,                                     -- Số tín chỉ
+    NamDaoTao INT                                     -- Năm đào tạo
+);
+
+
+CREATE TABLE SINHVIEN (
+    MaSinhVien VARCHAR(20) PRIMARY KEY,               -- Mã sinh viên (khóa chính)
+    HoTen VARCHAR(100) CHARACTER SET utf8,            -- Họ tên sinh viên
+    GioiTinh VARCHAR(10) CHARACTER SET utf8,          -- Giới tính
+    NgaySinh DATE,                                    -- Ngày sinh
+    DiaChi VARCHAR(255) CHARACTER SET utf8,           -- Địa chỉ
+    QueQuan VARCHAR(100) CHARACTER SET utf8,          -- Quê quán
+    Email VARCHAR(100),                               -- Email
+    SoDienThoai VARCHAR(15),                          -- Số điện thoại
+    NamNhapHoc INT,                                   -- Năm nhập học
+    MaLop VARCHAR(20),                                -- Mã lớp (liên kết với bảng LOP)
+    MaChuongTrinh VARCHAR(20),                        -- Mã chương trình đào tạo (liên kết với bảng CHUONGTRINHDAOTAO)
+    FOREIGN KEY (MaLop) REFERENCES LOP(MaLop),       -- Khóa ngoại tham chiếu đến MaLop trong bảng LOP
+    FOREIGN KEY (MaChuongTrinh) REFERENCES CHUONGTRINHDAOTAO(MaChuongTrinh) -- Khóa ngoại tham chiếu đến MaChuongTrinh trong bảng CHUONGTRINHDAOTAO
+);
+
+
+CREATE TABLE LOPHOCPHAN (
+    MaHocPhan VARCHAR(20) PRIMARY KEY,                -- Mã học phần (khóa chính)
+    TenHocPhan VARCHAR(100) CHARACTER SET utf8,       -- Tên học phần
+    HocKy VARCHAR(10),                                -- Học kỳ (ví dụ: HK1, HK2)
+    SoTinChi INT,                                     -- Số tín chỉ
+    MaNhanVien VARCHAR(20),                           -- Mã nhân viên (liên kết với bảng NHANVIEN)
+    MaChuongTrinh VARCHAR(20),                        -- Mã chương trình đào tạo (liên kết với bảng CHUONGTRINHDAOTAO)
+    FOREIGN KEY (MaNhanVien) REFERENCES NHANVIEN(MaNhanVien),    -- Khóa ngoại đến bảng NHANVIEN
+    FOREIGN KEY (MaChuongTrinh) REFERENCES CHUONGTRINHDAOTAO(MaChuongTrinh) -- Khóa ngoại đến bảng CHUONGTRINHDAOTAO
+);
+
+CREATE TABLE DIEM (
+    MaDiem INT AUTO_INCREMENT PRIMARY KEY,             -- Mã điểm (khóa chính, tự động tăng)
+    MaSinhVien VARCHAR(20),                            -- Mã sinh viên (khóa ngoại tham chiếu đến bảng SINHVIEN)
+    MaHocPhan VARCHAR(20),                             -- Mã học phần (khóa ngoại tham chiếu đến bảng LOPHOCPHAN)
+    MaLop VARCHAR(20),                                 -- Mã lớp (khóa ngoại tham chiếu đến bảng LOP)
+    Diem0 DECIMAL(5, 2) CHECK (Diem0 >= 0 AND Diem0 <= 10), -- Điểm 0 (giá trị từ 0 đến 10)
+    Diem1 DECIMAL(5, 2) CHECK (Diem1 >= 0 AND Diem1 <= 10), -- Điểm 1 (giá trị từ 0 đến 10)
+    MaNhanVien VARCHAR(20),                            -- Mã nhân viên (khóa ngoại tham chiếu đến bảng NHANVIEN)
+    FOREIGN KEY (MaSinhVien) REFERENCES SINHVIEN(MaSinhVien), -- Khóa ngoại đến bảng SINHVIEN
+    FOREIGN KEY (MaHocPhan) REFERENCES LOPHOCPHAN(MaHocPhan), -- Khóa ngoại đến bảng LOPHOCPHAN
+    FOREIGN KEY (MaLop) REFERENCES LOP(MaLop),               -- Khóa ngoại đến bảng LOP
+    FOREIGN KEY (MaNhanVien) REFERENCES NHANVIEN(MaNhanVien) -- Khóa ngoại đến bảng NHANVIEN
+);
+
+-- Bảng KHOA
+INSERT INTO KHOA (MaKhoa, TenKhoa) VALUES 
+('K01', 'Công nghệ thông tin'),
+('K02', 'Kinh tế'),
+('K03', 'Ngoại ngữ'),
+('K04', 'Khoa học xã hội'),
+('K05', 'Khoa học tự nhiên'),
+('K06', 'Y dược'),
+('K07', 'Luật'),
+('K08', 'Nông nghiệp'),
+('K09', 'Kiến trúc'),
+('K10', 'Mỹ thuật');
+
+-- Bảng NGANH
+INSERT INTO NGANH (MaNganh, TenNganh, MaKhoa) VALUES 
+('N01', 'Khoa học máy tính', 'K01'),
+('N02', 'Hệ thống thông tin', 'K01'),
+('N03', 'Quản trị kinh doanh', 'K02'),
+('N04', 'Kế toán', 'K02'),
+('N05', 'Ngôn ngữ Anh', 'K03'),
+('N06', 'Xã hội học', 'K04'),
+('N07', 'Vật lý học', 'K05'),
+('N08', 'Y khoa', 'K06'),
+('N09', 'Luật dân sự', 'K07'),
+('N10', 'Công nghệ sinh học', 'K08');
+
+-- Bảng LOP
+INSERT INTO LOP (MaLop, TenLop, MaNganh, HeDaoTao, KhoaHoc) VALUES 
+('L01', 'CNTT1', 'N01', 'Chính quy', 'K2020'),
+('L02', 'CNTT2', 'N01', 'Chính quy', 'K2021'),
+('L03', 'HTTT1', 'N02', 'Tại chức', 'K2020'),
+('L04', 'QTKD1', 'N03', 'Chính quy', 'K2019'),
+('L05', 'KT1', 'N04', 'Chính quy', 'K2022'),
+('L06', 'NNA1', 'N05', 'Tại chức', 'K2020'),
+('L07', 'KHXH1', 'N06', 'Chính quy', 'K2021'),
+('L08', 'VLH1', 'N07', 'Chính quy', 'K2022'),
+('L09', 'YK1', 'N08', 'Chính quy', 'K2019'),
+('L10', 'LD1', 'N09', 'Chính quy', 'K2020');
+
+-- Bảng CHUONGTRINHDAOTAO
+INSERT INTO CHUONGTRINHDAOTAO (MaChuongTrinh, LoaiChuongTrinh, SoTinChi, NamDaoTao) VALUES 
+('CT01', 'Chương trình đại học', 120, 2020),
+('CT02', 'Chương trình sau đại học', 90, 2021),
+('CT03', 'Chương trình thạc sĩ', 45, 2022),
+('CT04', 'Chương trình cao đẳng', 80, 2019),
+('CT05', 'Chương trình kỹ sư', 150, 2021),
+('CT06', 'Chương trình cử nhân', 120, 2022),
+('CT07', 'Chương trình học từ xa', 60, 2020),
+('CT08', 'Chương trình dạy nghề', 45, 2019),
+('CT09', 'Chương trình liên thông', 70, 2021),
+('CT10', 'Chương trình dự bị đại học', 30, 2023);
+
+-- Bảng NHANVIEN
+INSERT INTO NHANVIEN (MaNhanVien, TenNhanVien, LoaiNhanVien, NgaySinh, QueQuan) VALUES 
+('NV001', 'Nguyen Van A', 'Giảng viên', '1980-05-10', 'Hà Nội'),
+('NV002', 'Tran Thi B', 'Giảng viên', '1985-08-15', 'Hồ Chí Minh'),
+('NV003', 'Le Van C', 'Trợ giảng', '1990-02-20', 'Đà Nẵng'),
+('NV004', 'Pham Thi D', 'Quản lý', '1975-03-22', 'Hà Nam'),
+('NV005', 'Hoang Van E', 'Giảng viên', '1982-12-01', 'Nghệ An'),
+('NV006', 'Bui Thi F', 'Trợ giảng', '1992-09-19', 'Bắc Giang'),
+('NV007', 'Ngo Van G', 'Giảng viên', '1978-06-11', 'Hải Phòng'),
+('NV008', 'Vu Thi H', 'Quản lý', '1988-04-29', 'Huế'),
+('NV009', 'Dang Van I', 'Trợ giảng', '1991-11-14', 'Quảng Ninh'),
+('NV010', 'Phan Thi J', 'Giảng viên', '1984-07-07', 'Thanh Hóa');
+
+-- Bảng SINHVIEN
+INSERT INTO SINHVIEN (MaSinhVien, HoTen, GioiTinh, NgaySinh, DiaChi, QueQuan, Email, SoDienThoai, NamNhapHoc, MaLop, MaChuongTrinh) VALUES 
+('SV001', 'Nguyen Van K', 'Nam', '2002-01-15', 'Hà Nội', 'Hà Nội', 'sv001@example.com', '0123456789', 2020, 'L01', 'CT01'),
+('SV002', 'Tran Thi L', 'Nữ', '2001-12-01', 'Hồ Chí Minh', 'Hồ Chí Minh', 'sv002@example.com', '0987654321', 2020, 'L02', 'CT01'),
+('SV003', 'Le Van M', 'Nam', '2003-03-10', 'Đà Nẵng', 'Đà Nẵng', 'sv003@example.com', '0123987654', 2021, 'L03', 'CT02'),
+('SV004', 'Pham Thi N', 'Nữ', '2002-05-05', 'Nghệ An', 'Nghệ An', 'sv004@example.com', '0923456789', 2021, 'L04', 'CT01'),
+('SV005', 'Hoang Van O', 'Nam', '2000-07-20', 'Huế', 'Huế', 'sv005@example.com', '0934567890', 2019, 'L05', 'CT05'),
+('SV006', 'Bui Thi P', 'Nữ', '2002-09-09', 'Quảng Ninh', 'Quảng Ninh', 'sv006@example.com', '0945678901', 2022, 'L06', 'CT06'),
+('SV007', 'Ngo Van Q', 'Nam', '2001-11-11', 'Hải Phòng', 'Hải Phòng', 'sv007@example.com', '0956789012', 2020, 'L07', 'CT01'),
+('SV008', 'Vu Thi R', 'Nữ', '2000-02-22', 'Hà Tĩnh', 'Hà Tĩnh', 'sv008@example.com', '0967890123', 2019, 'L08', 'CT03'),
+('SV009', 'Dang Van S', 'Nam', '2003-03-03', 'Bắc Ninh', 'Bắc Ninh', 'sv009@example.com', '0978901234', 2021, 'L09', 'CT04'),
+('SV010', 'Phan Thi T', 'Nữ', '2002-10-10', 'Phú Thọ', 'Phú Thọ', 'sv010@example.com', '0989012345', 2020, 'L10', 'CT02');
+
+-- Bảng LOPHOCPHAN
+INSERT INTO LOPHOCPHAN (MaHocPhan, TenHocPhan, HocKy, SoTinChi, MaNhanVien, MaChuongTrinh) VALUES 
+('HP001', 'Lập trình C', 'HK1', 3, 'NV001', 'CT01'),
+('HP002', 'Cơ sở dữ liệu', 'HK2', 3, 'NV002', 'CT02'),
+('HP003', 'Lập trình Java', 'HK1', 4, 'NV003', 'CT03'),
+('HP004', 'Kinh tế vĩ mô', 'HK2', 3, 'NV004', 'CT04'),
+('HP005', 'Tài chính kế toán', 'HK1', 3, 'NV005', 'CT05'),
+('HP006', 'Ngữ pháp tiếng Anh', 'HK1', 2, 'NV006', 'CT01'),
+('HP007', 'Vật lý đại cương', 'HK2', 4, 'NV007', 'CT02'),
+('HP008', 'Giải phẫu học', 'HK1', 3, 'NV008', 'CT05');
+

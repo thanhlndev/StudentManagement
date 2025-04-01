@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 is_global = true
 build_property.RootNamespace = StudentManagement.BusinessLogic
 build_property.ProjectDir = D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\
@@ -6,3 +7,13 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 build_property.CsWinRTUseWindowsUIXamlProjections = false
 build_property.EffectiveAnalysisLevelStyle = 
 build_property.EnableCodeStyleSeverity = 
+=======
+is_global = true
+build_property.RootNamespace = StudentManagement.BusinessLogic
+build_property.ProjectDir = C:\Users\thanh\source\repos\StudentManagement\StudentManagement.BusinessLogic\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
+>>>>>>> 66bfcaf46f3979474ca67107b217457cb3fc45cf

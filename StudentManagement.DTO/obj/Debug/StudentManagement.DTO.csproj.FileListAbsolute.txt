@@ -1,0 +1,6 @@
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\bin\Debug\StudentManagement.DTO.dll
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\bin\Debug\StudentManagement.DTO.pdb
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\obj\Debug\StudentManagement.DTO.csproj.AssemblyReference.cache
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\obj\Debug\StudentManagement.DTO.csproj.CoreCompileInputs.cache
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\obj\Debug\StudentManagement.DTO.dll
+C:\Users\thanh\source\repos\StudentManagement\StudentManagement.DTO\obj\Debug\StudentManagement.DTO.pdb

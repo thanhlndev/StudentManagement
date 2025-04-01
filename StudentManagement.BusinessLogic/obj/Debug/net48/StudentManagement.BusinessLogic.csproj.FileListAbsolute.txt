@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.dll.config
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.dll
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.pdb
@@ -63,3 +64,25 @@ D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\EntityFramework.SqlServer.dll
+=======
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.dll.config
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.BusinessLogic.pdb
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\Microsoft.Extensions.DependencyInjection.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\System.ComponentModel.Annotations.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\System.Runtime.CompilerServices.Unsafe.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\System.Threading.Tasks.Extensions.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.DataAccess.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\EntityFramework.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.DataAccess.pdb
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\StudentManagement.DataAccess.dll.config
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\bin\Debug\net48\EntityFramework.xml
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentManagement.BusinessLogic.csproj.AssemblyReference.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentManagement.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentManagement.BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentM.0496B552.Up2Date
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentManagement.BusinessLogic.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\obj\Debug\net48\StudentManagement.BusinessLogic.pdb
+>>>>>>> 66bfcaf46f3979474ca67107b217457cb3fc45cf
