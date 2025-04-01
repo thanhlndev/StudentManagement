@@ -1,0 +1,6 @@
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\bin\Debug\StudentManagement.Common.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\bin\Debug\StudentManagement.Common.pdb
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\obj\Debug\StudentManagement.Common.csproj.AssemblyReference.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\obj\Debug\StudentManagement.Common.csproj.CoreCompileInputs.cache
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\obj\Debug\StudentManagement.Common.dll
+D:\Documents\2024-2025\CS\app\student\StudentManagement.Common\obj\Debug\StudentManagement.Common.pdb
