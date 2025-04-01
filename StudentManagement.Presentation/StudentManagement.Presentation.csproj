@@ -336,17 +336,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\StudentManagement.BusinessLogic.csproj">
-      <Project>{2b6f40ec-e632-4c2c-94aa-c75a7cd7520b}</Project>
+    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentManagement.BusinessLogic\StudentManagement.BusinessLogic.csproj">
+      <Project>{c051cf76-5586-9128-507c-40fb77c9c1ee}</Project>
       <Name>StudentManagement.BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\2024-2025\CS\app\student\StudentManagement.DataAccess\StudentManagement.DataAccess.csproj">
+    <ProjectReference Include="..\StudentManagement.DataAccess\StudentManagement.DataAccess.csproj">
       <Project>{d2604a0d-cbc4-4ea5-83c0-759a68b7365b}</Project>
       <Name>StudentManagement.DataAccess</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

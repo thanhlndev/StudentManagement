@@ -3,12 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.BusinessLogic", "D:\Documents\2024-2025\CS\app\student\StudentManagement.BusinessLogic\StudentManagement.BusinessLogic.csproj", "{2B6F40EC-E632-4C2C-94AA-C75A7CD7520B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D2604A0D-CBC4-4EA5-83C0-759A68B7365B} = {D2604A0D-CBC4-4EA5-83C0-759A68B7365B}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.BusinessLogic", "StudentManagement.BusinessLogic\StudentManagement.BusinessLogic.csproj", "{C051CF76-5586-9128-507C-40FB77C9C1EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.DataAccess", "D:\Documents\2024-2025\CS\app\student\StudentManagement.DataAccess\StudentManagement.DataAccess.csproj", "{D2604A0D-CBC4-4EA5-83C0-759A68B7365B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.DataAccess", "StudentManagement.DataAccess\StudentManagement.DataAccess.csproj", "{D2604A0D-CBC4-4EA5-83C0-759A68B7365B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagement.Presentation", "StudentManagement.Presentation\StudentManagement.Presentation.csproj", "{638E8134-DF19-4DB4-904B-9893A0084D12}"
 EndProject
@@ -18,10 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B6F40EC-E632-4C2C-94AA-C75A7CD7520B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B6F40EC-E632-4C2C-94AA-C75A7CD7520B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B6F40EC-E632-4C2C-94AA-C75A7CD7520B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B6F40EC-E632-4C2C-94AA-C75A7CD7520B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C051CF76-5586-9128-507C-40FB77C9C1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C051CF76-5586-9128-507C-40FB77C9C1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C051CF76-5586-9128-507C-40FB77C9C1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C051CF76-5586-9128-507C-40FB77C9C1EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2604A0D-CBC4-4EA5-83C0-759A68B7365B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D2604A0D-CBC4-4EA5-83C0-759A68B7365B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2604A0D-CBC4-4EA5-83C0-759A68B7365B}.Release|Any CPU.ActiveCfg = Release|Any CPU

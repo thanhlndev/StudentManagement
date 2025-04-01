@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kR7NCu2DQv8=",
+  "dgSpecHash": "ue24b44nBCA=",
   "success": true,
-  "projectFilePath": "D:\\Documents\\2024-2025\\CS\\app\\student\\StudentManagement.BusinessLogic\\StudentManagement.BusinessLogic.csproj",
+  "projectFilePath": "D:\\Documents\\2024-2025\\CS\\btl\\StudentManagement\\StudentManagement.BusinessLogic\\StudentManagement.BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thanh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
